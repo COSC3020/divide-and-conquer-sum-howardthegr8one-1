@@ -25,3 +25,16 @@ and solve it as we did in the lectures. Give the final $\Theta$ complexity.
 
 Describe your reasoning and the conclusion you've come to. Your reasoning is the
 most important part. Add your answer to this markdown file.
+
+
+# My recurrence relation
+
+$T(n) = 3 + 3*(log_3(n/3))$
+
+The 3 comes from the constant operations of initializing the sum and subsize variables as well
+as the conditional statements, 2 variables plus at least one conditional statement regardless of input size comes to 3.
+The $3*(log_3(n/3))$ comes from our three recursive calls with $n/3$ of the given array passed into each call. 
+
+Ignoring constant factors and lower order terms our big theta runtime comes to $\Theta(log_3(n))$
+or more simply put, $\Theta(logn)$. The base 3 coming from the fact that we're essentially following a "tree"
+of recursive calls splitting 3 at a time. 
