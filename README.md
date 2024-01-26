@@ -29,12 +29,43 @@ most important part. Add your answer to this markdown file.
 
 # My recurrence relation
 
-$T(n) = 3 + 3*(log_3(n/3))$
+$T(n) = $
+
+$$
+\begin{cases} 
+1, n \leq 2 \\
+3T(n/3) + 3,    n > 2
+\end{cases}
+$$
 
 The 3 comes from the constant operations of initializing the sum and subsize variables as well
 as the conditional statements, 2 variables plus at least one conditional statement regardless of input size comes to 3.
-The $3*(log_3(n/3))$ comes from our three recursive calls with $n/3$ of the given array passed into each call. 
 
-Ignoring constant factors and lower order terms our big theta runtime comes to $\Theta(log_3(n))$
-or more simply put, $\Theta(logn)$. The base 3 coming from the fact that we're essentially following a "tree"
-of recursive calls splitting 3 at a time. 
+Subbing this equation into itself when not considering the base case gives us:
+
+$T(n) = 3T(n/3) + 3$
+
+$= 3(3T([n/3]/3)+3)+3$
+
+$= 9T(n/9)+6$
+
+$= 3(9T(n/9/3)+6)+3$
+
+$= 27T(n/27)+9$
+
+This can be rewritten in the form:
+
+$3^iT(n/3^i)+3k$
+
+Where $k =$ number of recursive calls and $i=log_3(n)$ this is because we can only cut an array into thirds so many times before there won't be three elements
+left to cut. Therefore our new relation is:
+
+$$3<sup>log_3(n)</sup>T(n/3<sup>log_3(n)</sup>)+3k$$
+
+$= nT(1) + 3k$
+
+T(1) is our base case so that value is equal to 1, ignoring constants and lower order terms gives us:
+
+$= n + k$
+
+Since each of the three recursive calls only happens $k$ times and will at most happen $n/3$ times, then our final runtime complexity is $\Theta(n)$
