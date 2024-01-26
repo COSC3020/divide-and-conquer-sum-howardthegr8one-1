@@ -68,4 +68,4 @@ T(1) is our base case so that value is equal to 1, ignoring constants and lower 
 
 $= n + k$
 
-Since each of the three recursive calls only happens $k$ times and will at most happen $n/3$ times, then our final runtime complexity is $\Theta(n)$
+Since each of the three recursive calls only happens $k$ times and will at most happen $n/3$ times, then our final runtime complexity is $\Theta(n)$.
