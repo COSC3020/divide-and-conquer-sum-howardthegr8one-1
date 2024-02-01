@@ -55,17 +55,17 @@ $= 27T(n/27)+9$
 
 This can be rewritten in the form:
 
-$3^iT(n/3^i)+3k$
+$3^iT(n/3^i)+3i$
 
-Where $k =$ number of recursive calls and $i=log_3(n)$ this is because we can only cut an array into thirds so many times before there won't be three elements
+Where $i=log_3(n)$ this is because we can only cut an array into thirds so many times before there won't be three elements
 left to cut. Therefore our new relation is:
 
-$$3<sup>log_3(n)</sup>T(n/3<sup>log_3(n)</sup>)+3k$$
+$$3<sup>log_3(n)</sup>T(n/3<sup>log_3(n)</sup>)+3 log_3(n)$$
 
-$= nT(1) + 3k$
+$= nT(1) + 3 log_3(n)$
 
-T(1) is our base case so that value is equal to 1, ignoring constants and lower order terms gives us:
+T(1) is our base case so that value is equal to 1, ignoring constants gives us:
 
-$= n + k$
+$= n + log_3(n)$
 
-Since each of the three recursive calls only happens $k$ times and will at most happen $n/3$ times, then our final runtime complexity is $\Theta(n)$
+Since we can ignore lower order terms then our final runtime complexity is $\Theta(n)$
